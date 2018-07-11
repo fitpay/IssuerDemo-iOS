@@ -24,7 +24,7 @@ class SimulatedAppToAppViewController: UIViewController {
         }
         
         var authResponse = "approved"
-        
+
         switch (passwordTF.text?.last) {
         case "d":
             authResponse = "declined"
@@ -45,6 +45,48 @@ class SimulatedAppToAppViewController: UIViewController {
         
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
         
+        passwordTF.text = ""
+        passwordTF.resignFirstResponder()
+    }
+
+    @IBAction func declined(_ sender: Any) {
+        guard let wpCallback = appDelegate.wpCallback else {
+            showError("No callback", message: "Launch app with wpcallback parameter")
+            return
+        }
+
+        let authResponse = "declined"
+
+        var urlString = "\(wpCallback)?stepupresponse=\(authResponse)"
+        if (appDelegate.useAuthCode) {
+            urlString.append("&stepupauthcode=\(passwordTF!.text!)")
+        }
+
+        let url = URL(string: urlString)!
+
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+
+        passwordTF.text = ""
+        passwordTF.resignFirstResponder()
+    }
+
+    @IBAction func failure(_ sender: Any) {
+        guard let wpCallback = appDelegate.wpCallback else {
+            showError("No callback", message: "Launch app with wpcallback parameter")
+            return
+        }
+
+        let authResponse = "failure"
+
+        var urlString = "\(wpCallback)?stepupresponse=\(authResponse)"
+        if (appDelegate.useAuthCode) {
+            urlString.append("&stepupauthcode=\(passwordTF!.text!)")
+        }
+
+        let url = URL(string: urlString)!
+
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+
         passwordTF.text = ""
         passwordTF.resignFirstResponder()
     }
