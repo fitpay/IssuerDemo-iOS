@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cTb-OK-Bua">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cTb-OK-Bua">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -60,12 +60,44 @@
                                     <constraint firstAttribute="width" constant="355" placeholder="YES" id="87G-eo-v5T"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kXN-r5-5SZ">
+                                <rect key="frame" x="10" y="468.5" width="355" height="44"/>
+                                <color key="backgroundColor" red="0.066666666669999999" green="0.1647058824" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Y2T-XD-dWp"/>
+                                </constraints>
+                                <state key="normal" title="Decline">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="declined:" destination="BYZ-38-t0r" eventType="touchDragOutside" id="AlL-Fb-eBK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZRL-Tg-6eD">
+                                <rect key="frame" x="10" y="532.5" width="355" height="44"/>
+                                <color key="backgroundColor" red="0.066666666669999999" green="0.1647058824" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="l9E-NM-Ipa"/>
+                                </constraints>
+                                <state key="normal" title="Failure">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="failure:" destination="BYZ-38-t0r" eventType="touchUpInside" id="36U-AA-uXc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="b1e-OA-hrN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="GU2-rx-BVk"/>
                             <constraint firstItem="b1e-OA-hrN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="HJg-r2-uc8"/>
+                            <constraint firstItem="ZRL-Tg-6eD" firstAttribute="top" secondItem="kXN-r5-5SZ" secondAttribute="bottom" constant="20" id="OMa-Yt-GhW"/>
                             <constraint firstItem="b1e-OA-hrN" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-10" id="SUn-4b-ib8"/>
+                            <constraint firstItem="kXN-r5-5SZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZQq-li-Ct8"/>
+                            <constraint firstItem="kXN-r5-5SZ" firstAttribute="width" secondItem="VjY-94-6yd" secondAttribute="width" id="l2T-pH-j8H"/>
+                            <constraint firstItem="ZRL-Tg-6eD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="o3Y-eE-GwR"/>
+                            <constraint firstItem="ZRL-Tg-6eD" firstAttribute="width" secondItem="VjY-94-6yd" secondAttribute="width" id="sDx-mj-HmG"/>
+                            <constraint firstItem="kXN-r5-5SZ" firstAttribute="top" secondItem="b1e-OA-hrN" secondAttribute="bottom" constant="40" id="sNX-qY-o78"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

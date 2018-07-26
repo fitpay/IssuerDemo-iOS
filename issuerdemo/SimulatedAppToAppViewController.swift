@@ -1,6 +1,12 @@
 import UIKit
 
 class SimulatedAppToAppViewController: UIViewController {
+
+    enum AuthResponse: String {
+        case approved = "approved"
+        case declined = "declined"
+        case failure = "failure"
+    }
     
     @IBOutlet weak var passwordTF: UITextField!
     
@@ -17,34 +23,33 @@ class SimulatedAppToAppViewController: UIViewController {
             showError("No Password", message: "Password is empty")
             return
         }
-        
+
+        sendAuthResponse(.approved)
+    }
+
+    @IBAction func declined(_ sender: Any) {
+       sendAuthResponse(.declined)
+    }
+
+    @IBAction func failure(_ sender: Any) {
+        sendAuthResponse(.failure)
+    }
+
+    func sendAuthResponse(_ authResponse: AuthResponse) {
         guard let wpCallback = appDelegate.wpCallback else {
             showError("No callback", message: "Launch app with wpcallback parameter")
             return
         }
-        
-        var authResponse = "approved"
-        
-        switch (passwordTF.text?.last) {
-        case "d":
-            authResponse = "declined"
-            break;
-        case "f":
-            authResponse = "failure"
-            break
-        default:
-            break
-        }
-        
-        var urlString = "\(wpCallback)?stepupresponse=\(authResponse)"
+
+        var urlString = "\(wpCallback)?stepupresponse=\(authResponse.rawValue)"
         if (appDelegate.useAuthCode) {
             urlString.append("&stepupauthcode=\(passwordTF!.text!)")
         }
-        
+
         let url = URL(string: urlString)!
-        
+
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        
+
         passwordTF.text = ""
         passwordTF.resignFirstResponder()
     }
