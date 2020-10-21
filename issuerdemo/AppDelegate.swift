@@ -4,42 +4,40 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    
-    var payload: String?
-    var wpCallback: String?
-    var useAuthCode = true
+
+    lazy var navController: UINavigationController = {
+        return UINavigationController()
+    }()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        UIApplication.shared.statusBarStyle = .lightContent
-        
+
+        /// Style the navigation bar
+        UINavigationBar.appearance().barTintColor = .black
+        UINavigationBar.appearance().tintColor = .white
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().isTranslucent = true
+
+        /// Create a sample url for the demo controller to use for initial setup
+        let callbackQueryItem = URLQueryItem(name: "wpcallback", value: "com.garmin.connect.mobile.wallet://fitpay-app-to-app/")
+        var urlComponents = URLComponents(string: "pagare://a2a_generate_auth_code")!
+        urlComponents.queryItems = [callbackQueryItem]
+        let url = urlComponents.url!
+
+        let demoViewController = DemoViewController(url: url)
+        navController.pushViewController(demoViewController, animated: false)
+
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        self.window = window
+        window.rootViewController = navController
+        window.makeKeyAndVisible()
+
         return true
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey: Any] = [:]) -> Bool {
-        payload = url.queryParameters?["a2apayload"]
-        wpCallback = url.queryParameters?["wpcallback"]
-        
-        if (url.absoluteString.starts(with: "pagare://a2a_generate_auth_code")) {
-            useAuthCode = true
-        } else if (url.absoluteString.starts(with: "pagare://a2a_perform_auth")) {
-            useAuthCode = false
-        }
-        
+        navController.viewControllers = []
+        let demoViewController = DemoViewController(url: url)
+        navController.pushViewController(demoViewController, animated: false)
         return true
-    }
-    
-}
-
-extension URL {
-    
-    public var queryParameters: [String: String]? {
-        guard let components = URLComponents(url: self, resolvingAgainstBaseURL: true), let queryItems = components.queryItems else { return nil }
-        
-        var parameters = [String: String]()
-        for item in queryItems {
-            parameters[item.name] = item.value
-        }
-        
-        return parameters
     }
 }
