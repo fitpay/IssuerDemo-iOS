@@ -17,14 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         UINavigationBar.appearance().isTranslucent = true
 
-        /// Create a sample url for the demo controller to use for initial setup
-        let callbackQueryItem = URLQueryItem(name: "wpcallback", value: "com.garmin.connect.mobile.wallet://fitpay-app-to-app/")
-        var urlComponents = URLComponents(string: "pagare://a2a_generate_auth_code")!
-        urlComponents.queryItems = [callbackQueryItem]
-        let url = urlComponents.url!
-
-        let demoViewController = DemoViewController(url: url)
-        navController.pushViewController(demoViewController, animated: false)
+        let flowSelectionViewController = FlowSelectionViewController()
+        navController.pushViewController(flowSelectionViewController, animated: false)
 
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
