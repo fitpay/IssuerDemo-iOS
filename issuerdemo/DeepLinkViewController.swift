@@ -17,7 +17,7 @@ class DeepLinkViewController: UIViewController {
     let GARMIN_PAY_URL = "https://connect.garmin.com/payment/push"
 
     static let visaAccountReceipt = "eyJraWQiOiJhMjAwOTRjYy0yMTE1LTQzZTgtYjZkOS05Y2ZkMTYxODQwNWYiLCJjdHkiOiJhcHBsaWNhdGlvbi9qc29uIiwiZW5jIjoiQTI1NkdDTSIsInRhZyI6IldCbnZnaHZ4Vk9SNV9XSUh3TXBEaHciLCJhbGciOiJBMjU2R0NNS1ciLCJpdiI6Ill1ZHpGUW92emdkdGlheFAifQ.eMz0qvnyrK3sPpg9pgcc3M9cNDJDuGogKxO5J7QZX6k.z9b1YlXvI0YigapnwmrN6A.nZOTwdx5DlcarSPe_Y8yzjMH0lAhpNMvZwEHbojYD3WTc6sMjvs_m4kpf-ewpB6pzWQ_uSW93HBZPEPmWvRbhgFIk7c_xOaESk2f85S46dgJo_cRTso_jJXRVjQuqizabyOGM-Mnt5a1RfH6QvCSWrEKIV0NbtTjbXFrhcyRgaG-i8moa5lOMOuTLd4QHz4DF32ZC_aG5OQ5M7o8l_su7L7WEXgsu3f7TDc5r6Biyaei95pDwMZMaKIFFJWiBl0yEbJozA.lwpuG0VYDMh01CkiQw"
-    static let masterCardCreditAccountReceipt = "MCC-C307F0AE-298E-48EB-AA43-A7C40B32DDDE"
+    static let masterCardCreditAccountReceipt = "TST-MCC7F0AE-298E-48EB-AA43-A7C40B32DDDE"
     static let masterCardDebitAccountReceipt = "DMC-9H2T37SH-RB3O-PI14-QQ9R-321UGR5ZI07A"
     static let maestroAccountReceipt = "MSI-1E8GTJ94-9D5T-96MOWV36-56AZN95Y8DUL"
     static let plvPrivateLabelAccountReceipt = "PVL-1E8GTJ94-9D5T-96MOWV36-56AZN95Y8DUL"
