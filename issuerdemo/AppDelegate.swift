@@ -30,8 +30,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey: Any] = [:]) -> Bool {
         navController.viewControllers = []
-        let demoViewController = DemoViewController(url: url)
-        navController.pushViewController(demoViewController, animated: false)
-        return true
+        navController.pushViewController(FlowSelectionViewController(), animated: false)
+        if url.absoluteString == "pagare://deep-link" {
+            let deepLinkViewController = DeepLinkViewController()
+            navController.pushViewController(deepLinkViewController, animated: false)
+            return true
+        } else {
+            let demoViewController = DemoViewController(url: url)
+            navController.pushViewController(demoViewController, animated: false)
+            return true
+        }
     }
 }
