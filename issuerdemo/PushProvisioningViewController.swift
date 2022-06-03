@@ -1,5 +1,5 @@
 //
-//  DeepLinkViewController.swift
+//  PushProvisioningViewController.swift
 //  issuerdemo
 //
 //  Created by Howerton, Ian on 5/7/21.
@@ -8,13 +8,14 @@
 
 import UIKit
 
-class DeepLinkViewController: UIViewController {
+class PushProvisioningViewController: UIViewController {
+
     @IBOutlet weak var completeIssuerActivatationSwitch: UISwitch!
     @IBOutlet weak var callbackRequiredSwitch: UISwitch!
     @IBOutlet weak var cardTypePickerView: UIPickerView!
     @IBOutlet weak var sendButton: UIButton!
     
-    let GARMIN_PAY_URL = "https://connect.garmin.com/payment/push"
+    let GARMIN_PAY_URL = "https://connect.garmin.com/payment/push/ios/mc" // mastercard
 
     static let visaAccountReceipt = "eyJraWQiOiJhMjAwOTRjYy0yMTE1LTQzZTgtYjZkOS05Y2ZkMTYxODQwNWYiLCJjdHkiOiJhcHBsaWNhdGlvbi9qc29uIiwiZW5jIjoiQTI1NkdDTSIsInRhZyI6IldCbnZnaHZ4Vk9SNV9XSUh3TXBEaHciLCJhbGciOiJBMjU2R0NNS1ciLCJpdiI6Ill1ZHpGUW92emdkdGlheFAifQ.eMz0qvnyrK3sPpg9pgcc3M9cNDJDuGogKxO5J7QZX6k.z9b1YlXvI0YigapnwmrN6A.nZOTwdx5DlcarSPe_Y8yzjMH0lAhpNMvZwEHbojYD3WTc6sMjvs_m4kpf-ewpB6pzWQ_uSW93HBZPEPmWvRbhgFIk7c_xOaESk2f85S46dgJo_cRTso_jJXRVjQuqizabyOGM-Mnt5a1RfH6QvCSWrEKIV0NbtTjbXFrhcyRgaG-i8moa5lOMOuTLd4QHz4DF32ZC_aG5OQ5M7o8l_su7L7WEXgsu3f7TDc5r6Biyaei95pDwMZMaKIFFJWiBl0yEbJozA.lwpuG0VYDMh01CkiQw"
     static let masterCardCreditAccountReceipt = "TST-MCC7F0AE-298E-48EB-AA43-A7C40B32DDDE"
@@ -28,19 +29,19 @@ class DeepLinkViewController: UIViewController {
                                  CardAttributes(name: "mastercard", accountReceipt: masterCardCreditAccountRecieptAdditionalAuth, title: "Mastercard Auth flow"),
                                  CardAttributes(name: "mastercard", accountReceipt: masterCardCreditAccountRecieptDeclined, title: "Mastercard Declined "),
                                  CardAttributes(name: "mastercard", accountReceipt: masterCardCreditAccountRecieptError, title: "Mastercard Error"),
-                                 CardAttributes(name: "plv", accountReceipt: plvPrivateLabelAccountReceipt, title: "PVL Private Label"),
-                                 CardAttributes(name: "visa", accountReceipt: visaAccountReceipt, title: "Visa")]
+                                 CardAttributes(name: "plv", accountReceipt: plvPrivateLabelAccountReceipt, title: "PVL Private Label")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = "Push Provisioning"
+
         cardTypePickerView.dataSource = self
         cardTypePickerView.delegate = self
-        sendButton.layer.cornerRadius = 12
-        // Do any additional setup after loading the view.
     }
 
     @IBAction func sendButtonPressed(_ sender: Any) {
+        
         guard var urlComponents = URLComponents(string: GARMIN_PAY_URL) else {
             errorAlertView(errorText: "Could not create urlComponents")
             return
@@ -51,10 +52,9 @@ class DeepLinkViewController: UIViewController {
         //Currently we only know what mastercard uses.
         urlComponents.queryItems = [
             URLQueryItem(name: "callbackRequired", value: String(callbackRequiredSwitch.isOn)),
-            URLQueryItem(name: "callbackUrl", value: String("pagare://deep-link")),
-            URLQueryItem(name: "completeIssuerActivation", value: String(completeIssuerActivatationSwitch.isOn)),
-            URLQueryItem(name: "pushAccountReceipts", value: selectedCardType.accountReceipt),
-            URLQueryItem(name: "businessOperator", value: selectedCardType.name)
+            URLQueryItem(name: "callbackURL", value: "pagare://deep-link"),
+            URLQueryItem(name: "completeIssuerAppActivation", value: String(completeIssuerActivatationSwitch.isOn)),
+            URLQueryItem(name: "pushAccountReceipts", value: selectedCardType.accountReceipt)
         ]
 
         if let appURL = urlComponents.url, UIApplication.shared.canOpenURL(appURL) {
@@ -73,7 +73,8 @@ class DeepLinkViewController: UIViewController {
     }
 }
 
-extension DeepLinkViewController: UIPickerViewDataSource, UIPickerViewAccessibilityDelegate {
+extension PushProvisioningViewController: UIPickerViewDataSource, UIPickerViewAccessibilityDelegate {
+
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }

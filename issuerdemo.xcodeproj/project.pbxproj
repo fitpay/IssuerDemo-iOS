@@ -10,12 +10,15 @@
 		27EFE7E920939BC40044E172 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EFE7E820939BC40044E172 /* AppDelegate.swift */; };
 		27EFE7F020939BC70044E172 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27EFE7EF20939BC70044E172 /* Assets.xcassets */; };
 		27EFE7F320939BC70044E172 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27EFE7F120939BC70044E172 /* LaunchScreen.storyboard */; };
-		7CBDCA712645C8EA000933CC /* DeepLinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDCA6F2645C8EA000933CC /* DeepLinkViewController.swift */; };
-		7CBDCA722645C8EA000933CC /* DeepLinkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CBDCA702645C8EA000933CC /* DeepLinkViewController.xib */; };
-		7CBDCA762645C98A000933CC /* FlowSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDCA742645C989000933CC /* FlowSelectionViewController.swift */; };
-		7CBDCA772645C98A000933CC /* FlowSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CBDCA752645C989000933CC /* FlowSelectionViewController.xib */; };
-		9B701EF7253F8AE800B62163 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B701EF5253F8AE800B62163 /* DemoViewController.swift */; };
-		9B701EF8253F8AE800B62163 /* DemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B701EF6253F8AE800B62163 /* DemoViewController.xib */; };
+		7CBDCA712645C8EA000933CC /* PushProvisioningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDCA6F2645C8EA000933CC /* PushProvisioningViewController.swift */; };
+		7CBDCA722645C8EA000933CC /* PushProvisioningViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CBDCA702645C8EA000933CC /* PushProvisioningViewController.xib */; };
+		7CBDCA762645C98A000933CC /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDCA742645C989000933CC /* MenuViewController.swift */; };
+		7CBDCA772645C98A000933CC /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CBDCA752645C989000933CC /* MenuViewController.xib */; };
+		9B47F4AE284A5D4000EA1E37 /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B47F4AD284A5D4000EA1E37 /* AppButton.swift */; };
+		9B701EF7253F8AE800B62163 /* AppToAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B701EF5253F8AE800B62163 /* AppToAppViewController.swift */; };
+		9B701EF8253F8AE800B62163 /* AppToAppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B701EF6253F8AE800B62163 /* AppToAppViewController.xib */; };
+		9BB288832835840A00E94C30 /* CIQLinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB288812835840A00E94C30 /* CIQLinkViewController.swift */; };
+		9BB288842835840A00E94C30 /* CIQLinkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BB288822835840A00E94C30 /* CIQLinkViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,12 +27,15 @@
 		27EFE7EF20939BC70044E172 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27EFE7F220939BC70044E172 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		27EFE7F420939BC70044E172 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7CBDCA6F2645C8EA000933CC /* DeepLinkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkViewController.swift; sourceTree = "<group>"; };
-		7CBDCA702645C8EA000933CC /* DeepLinkViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeepLinkViewController.xib; sourceTree = "<group>"; };
-		7CBDCA742645C989000933CC /* FlowSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowSelectionViewController.swift; sourceTree = "<group>"; };
-		7CBDCA752645C989000933CC /* FlowSelectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlowSelectionViewController.xib; sourceTree = "<group>"; };
-		9B701EF5253F8AE800B62163 /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
-		9B701EF6253F8AE800B62163 /* DemoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DemoViewController.xib; sourceTree = "<group>"; };
+		7CBDCA6F2645C8EA000933CC /* PushProvisioningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushProvisioningViewController.swift; sourceTree = "<group>"; };
+		7CBDCA702645C8EA000933CC /* PushProvisioningViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PushProvisioningViewController.xib; sourceTree = "<group>"; };
+		7CBDCA742645C989000933CC /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		7CBDCA752645C989000933CC /* MenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
+		9B47F4AD284A5D4000EA1E37 /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
+		9B701EF5253F8AE800B62163 /* AppToAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppToAppViewController.swift; sourceTree = "<group>"; };
+		9B701EF6253F8AE800B62163 /* AppToAppViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppToAppViewController.xib; sourceTree = "<group>"; };
+		9BB288812835840A00E94C30 /* CIQLinkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CIQLinkViewController.swift; sourceTree = "<group>"; };
+		9BB288822835840A00E94C30 /* CIQLinkViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CIQLinkViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,12 +72,15 @@
 				27EFE7EF20939BC70044E172 /* Assets.xcassets */,
 				27EFE7F120939BC70044E172 /* LaunchScreen.storyboard */,
 				27EFE7F420939BC70044E172 /* Info.plist */,
-				9B701EF5253F8AE800B62163 /* DemoViewController.swift */,
-				9B701EF6253F8AE800B62163 /* DemoViewController.xib */,
-				7CBDCA6F2645C8EA000933CC /* DeepLinkViewController.swift */,
-				7CBDCA702645C8EA000933CC /* DeepLinkViewController.xib */,
-				7CBDCA742645C989000933CC /* FlowSelectionViewController.swift */,
-				7CBDCA752645C989000933CC /* FlowSelectionViewController.xib */,
+				9B701EF5253F8AE800B62163 /* AppToAppViewController.swift */,
+				9B701EF6253F8AE800B62163 /* AppToAppViewController.xib */,
+				7CBDCA6F2645C8EA000933CC /* PushProvisioningViewController.swift */,
+				7CBDCA702645C8EA000933CC /* PushProvisioningViewController.xib */,
+				7CBDCA742645C989000933CC /* MenuViewController.swift */,
+				7CBDCA752645C989000933CC /* MenuViewController.xib */,
+				9BB288812835840A00E94C30 /* CIQLinkViewController.swift */,
+				9BB288822835840A00E94C30 /* CIQLinkViewController.xib */,
+				9B47F4AD284A5D4000EA1E37 /* AppButton.swift */,
 			);
 			path = issuerdemo;
 			sourceTree = "<group>";
@@ -136,9 +145,10 @@
 			files = (
 				27EFE7F320939BC70044E172 /* LaunchScreen.storyboard in Resources */,
 				27EFE7F020939BC70044E172 /* Assets.xcassets in Resources */,
-				7CBDCA722645C8EA000933CC /* DeepLinkViewController.xib in Resources */,
-				7CBDCA772645C98A000933CC /* FlowSelectionViewController.xib in Resources */,
-				9B701EF8253F8AE800B62163 /* DemoViewController.xib in Resources */,
+				9BB288842835840A00E94C30 /* CIQLinkViewController.xib in Resources */,
+				7CBDCA722645C8EA000933CC /* PushProvisioningViewController.xib in Resources */,
+				7CBDCA772645C98A000933CC /* MenuViewController.xib in Resources */,
+				9B701EF8253F8AE800B62163 /* AppToAppViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,10 +159,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CBDCA712645C8EA000933CC /* DeepLinkViewController.swift in Sources */,
-				9B701EF7253F8AE800B62163 /* DemoViewController.swift in Sources */,
+				7CBDCA712645C8EA000933CC /* PushProvisioningViewController.swift in Sources */,
+				9B701EF7253F8AE800B62163 /* AppToAppViewController.swift in Sources */,
+				9BB288832835840A00E94C30 /* CIQLinkViewController.swift in Sources */,
+				9B47F4AE284A5D4000EA1E37 /* AppButton.swift in Sources */,
 				27EFE7E920939BC40044E172 /* AppDelegate.swift in Sources */,
-				7CBDCA762645C98A000933CC /* FlowSelectionViewController.swift in Sources */,
+				7CBDCA762645C98A000933CC /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
