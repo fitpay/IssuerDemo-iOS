@@ -11,14 +11,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        /// Style the navigation bar
-        UINavigationBar.appearance().barTintColor = .black
-        UINavigationBar.appearance().tintColor = .white
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        UINavigationBar.appearance().isTranslucent = true
-
-        let flowSelectionViewController = FlowSelectionViewController()
-        navController.pushViewController(flowSelectionViewController, animated: false)
+        let menuViewController = MenuViewController()
+        navController.viewControllers = [menuViewController]
 
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
@@ -29,16 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey: Any] = [:]) -> Bool {
-        navController.viewControllers = []
-        navController.pushViewController(FlowSelectionViewController(), animated: false)
-        if url.absoluteString == "pagare://deep-link" {
-            let deepLinkViewController = DeepLinkViewController()
-            navController.pushViewController(deepLinkViewController, animated: false)
-            return true
-        } else {
-            let demoViewController = DemoViewController(url: url)
-            navController.pushViewController(demoViewController, animated: false)
-            return true
+        if !url.absoluteString.contains("a2a") {
+            navController.popToRootViewController(animated: false)
+            let appToAppViewController = AppToAppViewController(url: url)
+            navController.pushViewController(appToAppViewController, animated: false)
         }
+
+        return true
     }
 }

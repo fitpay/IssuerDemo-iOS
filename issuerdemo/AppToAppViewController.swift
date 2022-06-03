@@ -1,5 +1,5 @@
 //
-//  DemoViewController.swift
+//  AppToAppViewController.swift
 //  issuerdemo
 //
 //  Created by Rebel, Chris on 10/20/20.
@@ -92,6 +92,13 @@ enum CardType: CaseIterable {
         case .discover: return "authCode"
         }
     }
+
+    var demoUrl: URL {
+        var urlComponents = URLComponents(string: "pagare://a2a_generate_auth_code")!
+        let callbackQueryItem = URLQueryItem(name: callbackRequestParam, value: "com.garmin.connect.mobile.wallet://fitpay-app-to-app/")
+        urlComponents.queryItems = [callbackQueryItem]
+        return urlComponents.url!
+    }
 }
 
 enum AuthResponse: CaseIterable {
@@ -153,7 +160,7 @@ enum CallbackError: Error {
     case unableToCreateUrl(URLComponents)
 }
 
-class DemoViewController: UIViewController {
+class AppToAppViewController: UIViewController {
 
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var contentView: UIView!
@@ -169,7 +176,7 @@ class DemoViewController: UIViewController {
     @IBOutlet var authCodeLabel: UILabel!
     @IBOutlet var authCodeContainerView: UIView!
     @IBOutlet var authCodeTextField: UITextField!
-    @IBOutlet var submitButton: UIButton!
+    @IBOutlet var submitButton: AppButton!
     @IBOutlet var previewLabel: UILabel!
 
     private var url: URL
@@ -177,6 +184,7 @@ class DemoViewController: UIViewController {
     private var authResponse: AuthResponse
     private var authCode: AuthCode
     private var action: SelectionAction
+    private var didLinkIn: Bool
 
     private let pickerView = UIPickerView(frame: CGRect.zero)
     private lazy var pickerDoneToolbar: UIToolbar = {
@@ -207,9 +215,23 @@ class DemoViewController: UIViewController {
         self.authResponse = .approved
         self.authCode = AuthCode(url: url) ?? .none
         self.action = .cardType
+        self.didLinkIn = true
 
         let nibName = String(describing: type(of: self))
-        let bundle = Bundle.init(for: DemoViewController.self)
+        let bundle = Bundle.init(for: AppToAppViewController.self)
+        super.init(nibName: nibName, bundle: bundle)
+    }
+
+    init(cardType: CardType) {
+        self.url = cardType.demoUrl
+        self.cardType = cardType
+        self.authResponse = .approved
+        self.authCode = AuthCode(url: url) ?? .none
+        self.action = .cardType
+        self.didLinkIn = false
+
+        let nibName = String(describing: type(of: self))
+        let bundle = Bundle.init(for: AppToAppViewController.self)
         super.init(nibName: nibName, bundle: bundle)
     }
 
@@ -220,7 +242,7 @@ class DemoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Issuer Demo"
+        title = "App to App"
 
         pickerTextField.isHidden = true
 
@@ -229,12 +251,6 @@ class DemoViewController: UIViewController {
         authCodeTextField.text = "12345"
         authCodeTextField.inputAccessoryView = authCodeDoneToolbar
         authCodeTextField.delegate = self
-
-        submitButton.clipsToBounds = true
-        submitButton.layer.cornerRadius = 12
-
-        let highlightColor = UIColor(red: 5.0/255.0, green: 80.0/255.0, blue: 204.0/255.0, alpha: 1.0)
-        submitButton.setBackgroundColor(highlightColor, forState: .highlighted)
 
         pickerView.dataSource = self
         pickerView.delegate = self
@@ -293,6 +309,10 @@ class DemoViewController: UIViewController {
         switch action {
         case .cardType:
             cardType = CardType.allCases[selectedRow]
+            if !didLinkIn {
+                url = cardType.demoUrl
+                requestLabel.text = url.absoluteString
+            }
         case .authResponse:
             authResponse = AuthResponse.allCases[selectedRow]
         case .authCode:
@@ -338,7 +358,6 @@ class DemoViewController: UIViewController {
 
     func createCallbackUrl() throws -> URL {
         guard let requestParams = url.queryParameters, let callback = requestParams[cardType.callbackRequestParam] else {
-            showError("Error", message: "Missing required request params")
             throw CallbackError.missingCallbackParam
         }
 
@@ -399,7 +418,7 @@ class DemoViewController: UIViewController {
     }
 }
 
-extension DemoViewController: UITextFieldDelegate {
+extension AppToAppViewController: UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
@@ -408,7 +427,7 @@ extension DemoViewController: UITextFieldDelegate {
     }
 }
 
-extension DemoViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+extension AppToAppViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -428,18 +447,6 @@ extension DemoViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         case .authResponse: return AuthResponse.allCases[row].description
         case .authCode: return AuthCode.allCases[row].description
         }
-    }
-}
-
-extension UIButton {
-
-    func setBackgroundColor(_ color: UIColor, forState controlState: UIControl.State) {
-        let colorImage = UIGraphicsImageRenderer(size: CGSize(width: 1, height: 1)).image { _ in
-            color.setFill()
-            UIBezierPath(rect: CGRect(x: 0, y: 0, width: 1, height: 1)).fill()
-        }
-
-        setBackgroundImage(colorImage, for: controlState)
     }
 }
 
