@@ -17,8 +17,6 @@
 		9B47F4AE284A5D4000EA1E37 /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B47F4AD284A5D4000EA1E37 /* AppButton.swift */; };
 		9B701EF7253F8AE800B62163 /* AppToAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B701EF5253F8AE800B62163 /* AppToAppViewController.swift */; };
 		9B701EF8253F8AE800B62163 /* AppToAppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B701EF6253F8AE800B62163 /* AppToAppViewController.xib */; };
-		9BB288832835840A00E94C30 /* CIQLinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB288812835840A00E94C30 /* CIQLinkViewController.swift */; };
-		9BB288842835840A00E94C30 /* CIQLinkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BB288822835840A00E94C30 /* CIQLinkViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,8 +32,6 @@
 		9B47F4AD284A5D4000EA1E37 /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
 		9B701EF5253F8AE800B62163 /* AppToAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppToAppViewController.swift; sourceTree = "<group>"; };
 		9B701EF6253F8AE800B62163 /* AppToAppViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppToAppViewController.xib; sourceTree = "<group>"; };
-		9BB288812835840A00E94C30 /* CIQLinkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CIQLinkViewController.swift; sourceTree = "<group>"; };
-		9BB288822835840A00E94C30 /* CIQLinkViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CIQLinkViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +74,6 @@
 				7CBDCA702645C8EA000933CC /* PushProvisioningViewController.xib */,
 				7CBDCA742645C989000933CC /* MenuViewController.swift */,
 				7CBDCA752645C989000933CC /* MenuViewController.xib */,
-				9BB288812835840A00E94C30 /* CIQLinkViewController.swift */,
-				9BB288822835840A00E94C30 /* CIQLinkViewController.xib */,
 				9B47F4AD284A5D4000EA1E37 /* AppButton.swift */,
 			);
 			path = issuerdemo;
@@ -145,7 +139,6 @@
 			files = (
 				27EFE7F320939BC70044E172 /* LaunchScreen.storyboard in Resources */,
 				27EFE7F020939BC70044E172 /* Assets.xcassets in Resources */,
-				9BB288842835840A00E94C30 /* CIQLinkViewController.xib in Resources */,
 				7CBDCA722645C8EA000933CC /* PushProvisioningViewController.xib in Resources */,
 				7CBDCA772645C98A000933CC /* MenuViewController.xib in Resources */,
 				9B701EF8253F8AE800B62163 /* AppToAppViewController.xib in Resources */,
@@ -161,7 +154,6 @@
 			files = (
 				7CBDCA712645C8EA000933CC /* PushProvisioningViewController.swift in Sources */,
 				9B701EF7253F8AE800B62163 /* AppToAppViewController.swift in Sources */,
-				9BB288832835840A00E94C30 /* CIQLinkViewController.swift in Sources */,
 				9B47F4AE284A5D4000EA1E37 /* AppButton.swift in Sources */,
 				27EFE7E920939BC40044E172 /* AppDelegate.swift in Sources */,
 				7CBDCA762645C98A000933CC /* MenuViewController.swift in Sources */,

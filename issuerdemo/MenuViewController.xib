@@ -13,7 +13,9 @@
             <connections>
                 <outlet property="appToAppButton" destination="znh-iN-O7M" id="afA-u8-Zpc"/>
                 <outlet property="ciqButton" destination="nxb-ys-07t" id="oEn-c1-aIJ"/>
+                <outlet property="deviceWalletButton" destination="Dr1-x3-Bnx" id="PKs-PS-8Jf"/>
                 <outlet property="pushProvisioningButton" destination="CUr-k9-oDa" id="PHe-0L-gfR"/>
+                <outlet property="userWalletButton" destination="cOP-O0-Gbj" id="doW-di-4d6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -23,10 +25,36 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="mca-wC-ri3">
-                    <rect key="frame" x="16" y="60" width="382" height="176"/>
+                    <rect key="frame" x="16" y="60" width="382" height="304"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="znh-iN-O7M" customClass="AppButton" customModule="issuerdemo" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cOP-O0-Gbj" customClass="AppButton" customModule="issuerdemo" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="382" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="5Pq-EL-bTk"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="User Wallet">
+                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="userWalletButtonPressed:" destination="-1" eventType="touchUpInside" id="Smw-PD-0AS"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dr1-x3-Bnx" userLabel="Device Wallet" customClass="AppButton" customModule="issuerdemo" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="64" width="382" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="kOo-yZ-hPF"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Device Wallet">
+                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="deviceWalletButtonPressed:" destination="-1" eventType="touchUpInside" id="5pr-8M-4oW"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="znh-iN-O7M" customClass="AppButton" customModule="issuerdemo" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="128" width="382" height="48"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="48" id="Gib-vA-Vzr"/>
                             </constraints>
@@ -38,7 +66,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CUr-k9-oDa" customClass="AppButton" customModule="issuerdemo" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="64" width="382" height="48"/>
+                            <rect key="frame" x="0.0" y="192" width="382" height="48"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="48" id="qwr-G0-NeU"/>
                             </constraints>
@@ -50,7 +78,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxb-ys-07t" customClass="AppButton" customModule="issuerdemo" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="128" width="382" height="48"/>
+                            <rect key="frame" x="0.0" y="256" width="382" height="48"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="48" id="e7b-FY-kUE"/>
                             </constraints>
