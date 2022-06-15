@@ -22,7 +22,33 @@ class MenuViewController: UIViewController {
     }
 
     @IBAction func deviceWalletButtonPressed(_ sender: Any) {
-        openUrl(path: "device?unitId=123")
+        promptForDeviceWalletUnitId()
+    }
+
+    private func promptForDeviceWalletUnitId() {
+        let title = "Enter a Garmin unit id to go to the device's wallet"
+        let message = "You can see device unit ids by long pressing on either the user or device wallet screens in GarminPay."
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+
+        alertController.addTextField { textField in
+            textField.placeholder = "Garmin Unit Id"
+            textField.keyboardType = .numberPad
+        }
+
+        let save = UIAlertAction(title: "Go", style: .default) { _ in
+            guard let textField = alertController.textFields?.first, let unitId = textField.text else {
+                return
+            }
+            self.openUrl(path: "device?unitId=\(unitId)")
+        }
+
+        let cancel = UIAlertAction(title: "Cancel", style: .default)
+
+        alertController.addAction(save)
+        alertController.addAction(cancel)
+        alertController.preferredAction = save
+
+        present(alertController, animated: true, completion: nil)
     }
 
     @IBAction func appToAppButtonPressed(_ sender: Any) {
