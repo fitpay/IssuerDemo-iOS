@@ -23,7 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey: Any] = [:]) -> Bool {
-        if !url.absoluteString.contains("a2a") {
+        if url.absoluteString.contains("/ciq") {
+            navController.popViewController(animated: false)
+        } else if !url.absoluteString.contains("a2a") {
             navController.popToRootViewController(animated: false)
             let appToAppViewController = AppToAppViewController(url: url)
             navController.pushViewController(appToAppViewController, animated: false)

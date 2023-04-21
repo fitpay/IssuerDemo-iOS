@@ -61,8 +61,13 @@ class MenuViewController: UIViewController {
         navigationController?.pushViewController(pushProvisioningViewController, animated: true)
     }
 
+    @IBAction func encryptedPushProvisioningButtonPressed(_ sender: Any) {
+        openUrl(path: "push/ios/mc?pushAccountData=eyJhbGciOiJSUzI1NiIsImtpZCI6IjIwMjEwOTI3MDkxMzQwLU1ERVMtdG9rZW4tY29ubmVjdC1tdGYifQ.eyJwdXNoQWNjb3VudFJlY2VpcHRzIjpbIk1TSS1TVEwtNkFERjg5QjItOEJBQi00MzNGLUE3NDItQUVENTg1Q0M3MDFCIl0sImNhbGxiYWNrVVJMIjoiaHR0cHM6Ly90b2tlbmNvbm5lY3QubWNzcmN0ZXN0c3RvcmUuY29tL3Rva2VuaXphdGlvbi1yZXN1bHRzIiwiY29tcGxldGVXZWJzaXRlQWN0aXZhdGlvbiI6dHJ1ZSwiYWNjb3VudEhvbGRlckRhdGFTdXBwbGllZCI6dHJ1ZSwibG9jYWxlIjoiZW5fVVMifQ.vdLuG-W4ydTfL_Meoov7kPKUfkLhBWiCyImUfZ79mYAsXgcUcrwjp2Fyrmfjf0rXClcYlDi19jD01gtXqmlmqRyXGvuWb0a0yXB_9isus2rKYwcAdbiEnlvHzN9J9taw_AzIF50ACl8xtDhF_dwX0UcFi_98TagNMlRN3-R0C0C4LZaWMj32der28roX3uUxjTUl4LQULP6kLC9b-kJozCXiAZnJVWtYMFO4FLMjAUFH0hZPTTzmkr80bJYTxU8gFF5KRx-Y25G8LtoQ0chTfyI6EbkOQzLvY5Rt1NISCMCDP2sWo8zPLBRIos6CLxkCO1eCS2WEwO02hqr9Vw6V3w"
+        )
+    }
+
     @IBAction func ciqButtonPressed(_ sender: Any) {
-        openUrl(path: "add")
+        openUrl(path: "add?callbackURL=pagare://ciq")
     }
 
     private func openUrl(path: String) {

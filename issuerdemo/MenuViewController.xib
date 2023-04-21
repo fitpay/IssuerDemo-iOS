@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -25,7 +25,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="mca-wC-ri3">
-                    <rect key="frame" x="16" y="60" width="382" height="304"/>
+                    <rect key="frame" x="16" y="60" width="382" height="368"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cOP-O0-Gbj" customClass="AppButton" customModule="issuerdemo" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="382" height="48"/>
@@ -77,8 +77,20 @@
                                 <action selector="pushProvisioningButtonPressed:" destination="-1" eventType="touchUpInside" id="SbX-SA-rCX"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxb-ys-07t" customClass="AppButton" customModule="issuerdemo" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xGk-1F-RP1" customClass="AppButton" customModule="issuerdemo" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="256" width="382" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="VgB-cj-GKq"/>
+                            </constraints>
+                            <state key="normal" title="Encrypted Push Provisioning">
+                                <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="encryptedPushProvisioningButtonPressed:" destination="-1" eventType="touchUpInside" id="hME-sa-5w1"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxb-ys-07t" customClass="AppButton" customModule="issuerdemo" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="320" width="382" height="48"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="48" id="e7b-FY-kUE"/>
                             </constraints>
